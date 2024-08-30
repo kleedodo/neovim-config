@@ -14,20 +14,21 @@ return {
 		end,
 	},
 	{
+		"mrcjkb/rustaceanvim",
+		version = "^5",
+		lazy = false
+	},
+	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.bashls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-
+			local servers = { "bashls", "pyright" } -- rust_anylyzer don't need setup dual to rustaceanvim
+			for _, v in ipairs(servers) do
+				lspconfig[v].setup({
+					capabilities = capabilities,
+				})
+			end
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set("n", "gr", vim.lsp.buf.references, {})
