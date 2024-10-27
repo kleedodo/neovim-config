@@ -14,4 +14,18 @@ git clone https://github.com/kleedodo/neovim-config.git ~/.config/nvim
 nvim
 ```
 
+open nvim and type :Mason, found follow lsp/formater/linter and install then.
+
+lsp:
+- bash-language-server
+- pyright
+- rust-analyzer
+- taplo
+
+formater:
+- prettier
+- stylua
+
+linter:
+- eslint_d
 just simple, enjoy it!
