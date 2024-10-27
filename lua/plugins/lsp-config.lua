@@ -23,7 +23,7 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-			local servers = { "bashls", "pyright" } -- rust_anylyzer don't need setup dual to rustaceanvim
+			local servers = { "bashls", "pyright", "taplo" } -- rust_anylyzer don't need setup due to rustaceanvim
 			for _, v in ipairs(servers) do
 				lspconfig[v].setup({
 					capabilities = capabilities,
